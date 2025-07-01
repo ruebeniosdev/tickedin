@@ -1,7 +1,7 @@
 import { Outlet } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 
-export const Layout = () => {
+export const MainLayout = () => {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       {/* Top Nav */}

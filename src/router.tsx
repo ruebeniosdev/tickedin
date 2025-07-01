@@ -6,11 +6,12 @@ import {
 } from "@tanstack/react-router";
 
 import { Home } from "./pages/Home";
-import { Layout } from "./components/layout"
+
 import { SellTicket } from "./pages/SellTicket";
 import { EventDetail } from "./pages/EventDetail";
+import { MainLayout } from "./components/MainLayout";
 
-const rootRoute = new RootRoute({ component: Layout });
+const rootRoute = new RootRoute({ component: MainLayout });
 
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
