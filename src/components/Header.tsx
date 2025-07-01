@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   SignedIn,
@@ -13,9 +14,19 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { Menu } from "lucide-react";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Menu, X } from "lucide-react";
+import { SellTicket } from "@/pages/SellTicket";
 
 export const Header = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <header className="border-b bg-background w-full">
       <nav
@@ -32,9 +43,27 @@ export const Header = () => {
           {/* Desktop Nav */}
           <SignedIn>
             <div className="hidden md:flex items-center gap-3">
-              <Link to="/sell">
-                <Button>Sell Tickets</Button>
-              </Link>
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button onClick={() => setIsDialogOpen(true)}>
+                    Sell Tickets
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="w-full max-w-2xl sm:rounded-lg sm:max-h-[90vh] overflow-y-auto px-4 sm:px-6 py-6">
+                  <DialogHeader className="flex justify-between items-center">
+                    <DialogTitle>Sell a Ticket</DialogTitle>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsDialogOpen(false)}
+                    >
+                      <X className="w-5 h-5" />
+                    </Button>
+                  </DialogHeader>
+                  <SellTicket />
+                </DialogContent>
+              </Dialog>
+
               <Link to="/my-tickets">
                 <Button variant="outline">My Tickets</Button>
               </Link>
@@ -52,13 +81,32 @@ export const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem asChild>
-                    <Link to="/sell">Sell Tickets</Link>
+                    <Button
+                      variant="ghost"
+                      className="w-full text-left"
+                      onClick={() => setIsDialogOpen(true)}
+                    >
+                      Sell Tickets
+                    </Button>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/my-tickets">My Tickets</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+
+              {/* Mobile Modal */}
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogContent className="w-full max-w-2xl sm:rounded-lg sm:max-h-[90vh] overflow-y-auto px-4 sm:px-6 py-6">
+                  <DialogContent className="w-full max-w-2xl sm:rounded-lg sm:max-h-[90vh] overflow-y-auto px-4 sm:px-6 py-6">
+                    <DialogHeader>
+                      <DialogTitle>Sell a Ticket</DialogTitle>
+                    </DialogHeader>
+                    <SellTicket />
+                  </DialogContent>
+                  <SellTicket />
+                </DialogContent>
+              </Dialog>
             </div>
           </SignedIn>
 
