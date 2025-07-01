@@ -2,6 +2,8 @@
 
 TickedIn is a modern, responsive B2B ticketing platform built with React, TypeScript, Clerk, Tailwind CSS, and TanStack Router. It allows users to browse, reserve, and purchase tickets for concerts, sports, and event experiences.
 
+Live: https://tickedin.netlify.app/
+
 ## ✨ Features
 
 - 🔐 User authentication with Clerk
