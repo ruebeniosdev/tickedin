@@ -57,7 +57,7 @@ export const EventDetail = () => {
                     <MapPin className="w-5 h-5 mr-2 text-primary" />
                     <span className="text-sm font-medium">Location</span>
                   </div>
-                  <p className="text-muted-foreground0">Accra Sports Stadium, Ghana</p>
+                  <p className="text-muted-foreground">Accra Sports Stadium, Ghana</p>
                 </div>
 
                 {/* Price */}
@@ -75,7 +75,7 @@ export const EventDetail = () => {
                     <Ticket className="w-5 h-5 mr-2 text-primary" />
                     <span className="text-sm font-medium">Availability</span>
                   </div>
-                  <p className="text-muted-foreground0">120 Tickets Left</p>
+                  <p className="text-muted-foreground">120 Tickets Left</p>
                 </div>
               </div>
 
